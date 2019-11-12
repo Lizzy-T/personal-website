@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+#navbar {
+    font-family: 'Montserrat', sans-serif;
+    background-color: hsl(211, 71%, 24%);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-right: 19rem;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: rgb(168, 148, 148);
+    padding: 10px;
+}
+
+#navbar .active {
+    color: hsl(20, 35%, 90%)
+}
+
