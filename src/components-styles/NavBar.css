@@ -17,6 +17,11 @@
     padding: 10px;
 }
 
+#navbar a:hover {
+    color: hsl(340, 49%, 45%);
+    transition: .3s;
+}
+
 #navbar .active {
     color: hsl(20, 35%, 90%)
 }
