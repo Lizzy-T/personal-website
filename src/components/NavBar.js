@@ -6,6 +6,9 @@ import {
     scroller
 } from 'react-scroll'
 
+import liLogo from "../photos/linkedin-52.png"
+import gitHub from '../photos/GitHub-Mark-64px.png'
+
 import '../components-styles/NavBar.css'
 
 export default function NavBar () {
@@ -22,22 +25,29 @@ export default function NavBar () {
       }
 
     return (
-        <nav id="navbar">
-            <Link 
-                activeClassName="active"
-                exact to='/'
-                onClick={() => scrollTo("home")}
-            >Home</Link>
-            <Link 
-                activeClassName="active"
-                exact to='/about'
-                onClick={() => scrollTo("about")}
-            >About</Link>
-            <Link 
-                activeClassName="active"
-                to='/resume'
-                onClick={() => scrollTo("resume")}
-            >Resume</Link>
-        </nav>
+        <header>
+            <nav id="navbar">
+                <Link 
+                    activeClassName="active"
+                    onClick={() => scrollTo("home")}
+                >Home</Link>
+                <Link 
+                    activeClassName="active"
+                    onClick={() => scrollTo("about")}
+                >About</Link>
+                <Link 
+                    activeClassName="active"
+                    onClick={() => scrollTo("resume")}
+                >Resume</Link>
+            </nav>
+            <div className='img-links'>
+                <a href="https://www.linkedin.com/in/elizabeth-tong-a5851b180">
+                    <img className="liLogo" src={liLogo} alt="linkedIn-profile"/>
+                </a>
+                <a href="https://github.com/Lizzy-T">
+                    <img className="githubLogo" src={gitHub} alt="gitHub Repos" />
+                </a>
+            </div>
+        </header>
     )
 } 

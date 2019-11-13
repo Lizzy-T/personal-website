@@ -1,0 +1,27 @@
+
+.contact {
+    display: flex;
+    flex-flow: column wrap;
+    padding: 10rem 2rem;
+    background-color: #123c69;
+    color: hsla(21, 33%, 90%, 0.925);
+}
+
+.contact h3 {
+    align-self: center;
+    font-size: 25px;
+}
+
+.contact p {
+    margin-top: 15px;
+    align-self: center;
+}
+
+.personal-email {
+    padding-right: 15px;
+}
+
+.personal-email:hover {
+    color: hsl(340, 49%, 45%);
+    transition: .3s;
+}
