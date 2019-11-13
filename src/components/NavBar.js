@@ -6,14 +6,9 @@ import {
 } from 'react-scroll'
 import { saveAs } from 'file-saver';
 
-import gitHub from '../photos/GitHub-Mark-64px.png'
-
 import '../components-styles/NavBar.css'
 
 export default function NavBar () {
-    const scrollToTop = () => {
-        scroll.scrollToTop()
-      }
     
     const scrollTo = (element) => {
         scroller.scrollTo(element, {
@@ -33,26 +28,29 @@ export default function NavBar () {
         <header>
             <nav className="navbar">
                 <Link 
-                    activeClassName="active"
+                    activeclassname="active"
+                    to='home'
                     onClick={() => scrollTo("home")}
                 >Home</Link>
                 <Link 
-                    activeClassName="active"
+                    to='about'
+                    activeclassname="active"
                     onClick={() => scrollTo("about")}
                 >About</Link>
                 <Link 
-                    activeClassName="active"
+                    to='resume'
+                    activeclassname="active"
                     onClick={() => scrollTo("resume")}
                 >Resume</Link>
             </nav>
             <div className='img-links'>
                 <a href="https://www.linkedin.com/in/elizabeth-tong-a5851b180">
-                    <i class="fab fa-linkedin"></i>
+                    <i className="fab fa-linkedin"></i>
                 </a>
                 <a href="https://github.com/Lizzy-T">
-                    <i class="fab fa-github-square"></i>
+                    <i className="fab fa-github-square"></i>
                 </a>
-                <i class="fas fa-file-alt" 
+                <i className="fas fa-file-alt" 
                     onClick={downloadResume}
                 ></i>
             </div>
