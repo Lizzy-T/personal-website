@@ -4,6 +4,7 @@ import {
     animateScroll as scroll, 
     scroller
 } from 'react-scroll'
+import { saveAs } from 'file-saver';
 
 import gitHub from '../photos/GitHub-Mark-64px.png'
 
@@ -21,6 +22,12 @@ export default function NavBar () {
           smooth: 'easeInOutQuart'
         })
       }
+
+    const downloadResume = () => {
+        fetch("http://localhost:3000/download")
+            .then(response => response.blob())
+            .then(blob => saveAs(blob, "ETongResume.pdf", { autoBom: true }))
+    }
 
     return (
         <header>
@@ -45,7 +52,9 @@ export default function NavBar () {
                 <a href="https://github.com/Lizzy-T">
                     <i class="fab fa-github-square"></i>
                 </a>
-                <i class="fas fa-file-alt"></i>
+                <i class="fas fa-file-alt" 
+                    onClick={downloadResume}
+                ></i>
             </div>
         </header>
     )
