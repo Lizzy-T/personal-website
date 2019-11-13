@@ -1,8 +1,7 @@
 import React from 'react'
 import {
-    Switch,
-    Route
-} from 'react-router-dom'
+    Element
+} from 'react-scroll'
 
 import Home from './Home'
 import About from './About'
@@ -14,10 +13,16 @@ import "../components-styles/Main.css"
 export default function Main (props) {
 
 return( 
-    <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path='/resume' component={Resume} />
-    </Switch>
+    <main>
+        <Element name="home">
+            <Home />
+        </Element>
+        <Element name='about'>
+            <About />
+        </Element>
+        <Element name='resume'>
+            <Resume />
+        </Element>
+    </main>
     )
 }
