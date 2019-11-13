@@ -1,28 +1,38 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
-#navbar {
+header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
     font-family: 'Montserrat', sans-serif;
     background-color: hsl(211, 71%, 24%);
     position: fixed;
-    top: 0;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    padding-right: 19rem;
+    top: 0;
+    padding: 5rem;
 }
 
 #navbar a {
     text-decoration: none;
     color: rgb(168, 148, 148);
-    padding: 10px;
 }
 
 #navbar a:hover {
-    color: hsl(340, 49%, 45%);
+    color: hsl(20, 35%, 90%);
     transition: .3s;
+    cursor: pointer;
 }
 
-#navbar .active {
-    color: hsl(20, 35%, 90%)
+.liLogo {
+    width: 35px;
 }
 
+.githubLogo {
+    width: 35px;
+    padding-left: 15px;
+}
+
+.liLogo:hover, .githubLogo:hover {
+    transform: scale(1.1);
+    transition: transform .3s ease;
+}

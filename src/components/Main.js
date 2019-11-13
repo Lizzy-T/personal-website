@@ -6,6 +6,7 @@ import {
 import Home from './Home'
 import About from './About'
 import Resume from './Resume'
+import Contact from './Contact'
 
 import "../components-styles/Main.css"
 
@@ -22,6 +23,9 @@ return(
         </Element>
         <Element name='resume'>
             <Resume />
+        </Element>
+        <Element name='contact'>
+            <Contact />
         </Element>
     </main>
     )
