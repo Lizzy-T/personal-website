@@ -3,36 +3,46 @@
 header {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: space-around;
     font-family: 'Montserrat', sans-serif;
     background-color: hsl(211, 71%, 24%);
     position: fixed;
+    padding: 2rem 0;
     width: 100%;
-    top: 0;
-    padding: 5rem;
 }
 
-#navbar a {
+.navbar a {
     text-decoration: none;
     color: rgb(168, 148, 148);
+    padding-right: 15px;
 }
 
-#navbar a:hover {
+.navbar a:hover {
     color: hsl(20, 35%, 90%);
     transition: .3s;
     cursor: pointer;
 }
 
-.liLogo {
-    width: 35px;
+.img-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 120px;
 }
 
-.githubLogo {
-    width: 35px;
-    padding-left: 15px;
+.fa-linkedin, .fa-github-square {
+    color: rgb(168, 148, 148);
+    font-size: 38px;
 }
 
-.liLogo:hover, .githubLogo:hover {
-    transform: scale(1.1);
-    transition: transform .3s ease;
+.fa-file-alt {
+    color: rgb(168, 148, 148);
+    font-size: 34px;
+}
+
+.fa-linkedin:hover, .fa-github-square:hover, .fa-file-alt:hover {
+    color: hsl(20, 35%, 90%);
+    transition: .3s;
+    cursor: pointer;
 }

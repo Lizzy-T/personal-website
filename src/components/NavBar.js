@@ -1,12 +1,10 @@
 import React from 'react'
 import {
     Link, 
-    Events, 
     animateScroll as scroll, 
     scroller
 } from 'react-scroll'
 
-import liLogo from "../photos/linkedin-52.png"
 import gitHub from '../photos/GitHub-Mark-64px.png'
 
 import '../components-styles/NavBar.css'
@@ -26,7 +24,7 @@ export default function NavBar () {
 
     return (
         <header>
-            <nav id="navbar">
+            <nav className="navbar">
                 <Link 
                     activeClassName="active"
                     onClick={() => scrollTo("home")}
@@ -42,11 +40,12 @@ export default function NavBar () {
             </nav>
             <div className='img-links'>
                 <a href="https://www.linkedin.com/in/elizabeth-tong-a5851b180">
-                    <img className="liLogo" src={liLogo} alt="linkedIn-profile"/>
+                    <i class="fab fa-linkedin"></i>
                 </a>
                 <a href="https://github.com/Lizzy-T">
-                    <img className="githubLogo" src={gitHub} alt="gitHub Repos" />
+                    <i class="fab fa-github-square"></i>
                 </a>
+                <i class="fas fa-file-alt"></i>
             </div>
         </header>
     )
