@@ -1,26 +1,43 @@
 import React from 'react'
 import {
-    NavLink
-} from 'react-router-dom'
+    Link, 
+    Events, 
+    animateScroll as scroll, 
+    scroller
+} from 'react-scroll'
 
 import '../components-styles/NavBar.css'
 
 export default function NavBar () {
+    const scrollToTop = () => {
+        scroll.scrollToTop()
+      }
+    
+    const scrollTo = (element) => {
+        scroller.scrollTo(element, {
+          duration: 1000,
+          delay: 0,
+          smooth: 'easeInOutQuart'
+        })
+      }
+
     return (
         <nav id="navbar">
-            <NavLink 
+            <Link 
                 activeClassName="active"
                 exact to='/'
-            >Home</NavLink>
-            <NavLink 
-                
+                onClick={() => scrollTo("home")}
+            >Home</Link>
+            <Link 
                 activeClassName="active"
                 exact to='/about'
-            >About</NavLink>
-            <NavLink 
+                onClick={() => scrollTo("about")}
+            >About</Link>
+            <Link 
                 activeClassName="active"
                 to='/resume'
-            >Resume</NavLink>
+                onClick={() => scrollTo("resume")}
+            >Resume</Link>
         </nav>
     )
 } 
