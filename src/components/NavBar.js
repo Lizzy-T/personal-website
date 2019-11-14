@@ -1,15 +1,15 @@
 import React from 'react'
 import {
     Link, 
-    animateScroll as scroll, 
     scroller
 } from 'react-scroll'
+
 import { saveAs } from 'file-saver';
 
 import '../components-styles/NavBar.css'
 
-export default function NavBar () {
-    
+export default function NavBar ({baseURL, toggleLoginForm, ...props}) {
+
     const scrollTo = (element) => {
         scroller.scrollTo(element, {
           duration: 1000,
@@ -19,9 +19,17 @@ export default function NavBar () {
       }
 
     const downloadResume = () => {
-        fetch("http://localhost:3000/download")
-            .then(response => response.blob())
-            .then(blob => saveAs(blob, "ETongResume.pdf", { autoBom: true }))
+        fetch(`${baseURL}/download`)
+            .then(response => {
+                if (response.status > 400) throw new Error("not downloadable")
+                console.log(response)
+                response.blob()
+            }).then(blob => saveAs(blob, "ETongResume.pdf", { autoBom: true })) 
+            .catch(console.log)
+    }
+
+    function handleLogin (e) {
+        toggleLoginForm()
     }
 
     return (
@@ -52,6 +60,9 @@ export default function NavBar () {
                 </a>
                 <i className="fas fa-file-alt" 
                     onClick={downloadResume}
+                ></i>
+                <i className="fas fa-sign-in-alt"
+                    onClick={handleLogin}
                 ></i>
             </div>
         </header>

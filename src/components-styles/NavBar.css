@@ -6,7 +6,7 @@ header {
     align-items: center;
     justify-content: space-around;
     font-family: 'Montserrat', sans-serif;
-    background-color: hsl(211, 71%, 24%);
+    background-color: hsl(217, 13%, 20%);
     position: fixed;
     padding: 2rem 0;
     width: 100%;
@@ -14,12 +14,12 @@ header {
 
 .navbar a {
     text-decoration: none;
-    color: rgb(168, 148, 148);
+    color: hsl(191, 13%, 83%);
     padding-right: 15px;
 }
 
 .navbar a:hover {
-    color: hsl(20, 35%, 90%);
+    color: hsl(0, 0%, 100%);
     transition: .3s;
     cursor: pointer;
 }
@@ -28,21 +28,21 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 120px;
+    width: 150px;
 }
 
-.fa-linkedin, .fa-github-square {
-    color: rgb(168, 148, 148);
+.fa-linkedin, .fa-github-square, .fa-sign-in-alt {
+    color: hsl(191, 13%, 83%);
     font-size: 38px;
 }
 
 .fa-file-alt {
-    color: rgb(168, 148, 148);
+    color: hsl(191, 13%, 83%);
     font-size: 34px;
 }
 
-.fa-linkedin:hover, .fa-github-square:hover, .fa-file-alt:hover {
-    color: hsl(20, 35%, 90%);
+.fa-linkedin:hover, .fa-github-square:hover, .fa-file-alt:hover, .fa-sign-in-alt:hover {
+    color: hsl(0, 0%, 100%);
     transition: .3s;
     cursor: pointer;
 }

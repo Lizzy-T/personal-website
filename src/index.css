@@ -22,12 +22,12 @@ time, mark, audio, video {
 }
 
 colors {
-  color: #edc6b6;
-  color: hsla(19, 45%, 87%, 1);
-  color: hsl(20, 35%, 90%);
-  color: hsl(337, 5%, 71%);
-  color: #123c69;
-  color: hsl(340, 49%, 45%);
+  color: hsl(212, 36%, 37%);
+  color-navbar: hsl(217, 13%, 20%);
+  color-link-block1: hsl(191, 13%, 83%);
+  color-block2: hsl(210, 12%, 41%);
+  color: hsl(280, 2%, 28%);
+  color-hover: white;
 }
 
 h1, h2, h3, h4, h5, h6 {
