@@ -1,13 +1,13 @@
 .my-apps {
     padding: 12rem 5rem;
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(6, 1fr) 2fr 1fr;
     grid-template-rows: auto;
     grid-template-areas: 
-        "header header header header header header header"
-        "label label label label label label label"
-        "main main main main main main main"
-        "footer footer footer footer footer footer footer";
+        "header header header header header header header header"
+        "label label label label label label label label"
+        "main main main main main main main main"
+        "footer footer footer footer footer footer footer footer";
     grid-row-gap: 17px;
     grid-column-gap: 27px;
     background-color: hsl(210, 12%, 41%);
@@ -17,6 +17,9 @@
 .my-apps h1 {
     grid-area: header;
     padding-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
 }
 
 .my-apps label {

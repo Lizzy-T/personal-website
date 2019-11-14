@@ -4,7 +4,7 @@ import '../components-styles/InterviewListing.css'
 
 export default function InterviewListing ({method, date}) {
     return (
-        <div>
+        <div className='interview-list'>
             <p className='interview-type'>{method}</p>
             <p className='interview-date'>{date}</p>
         </div>

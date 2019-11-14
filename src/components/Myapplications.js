@@ -1,41 +1,27 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import AppListing from './AppListing'
 
 import '../components-styles/Myapplications.css'
 
-export default class Myapplications extends Component {
-    state = {
-        appList: [        
-            {company: "test",
-            contact_method: "phone",
-            contact_name: "testing",
-            date_submitted: "8-8-2000",
-            follow_up: true,
-            id: 2,
-            interviews: [
-                {id: 2, method: "phone", date: "8-01-2000", application_id: 2}
-                ],
-            status: "yellow",
-            user_id: 2}]
-    }
+export default function Myapplications ({userApplications}) {
 
-    showList = () => {
-        let {userApplications} = this.props
+    const showList = () => {
         if (userApplications < 1) return 
         userApplications = userApplications[0]
         return userApplications.map(listing => {
             return (
-                <li>
+                <li key={listing.id}>
                     <AppListing {...listing} />
                 </li>
             )})
     }
 
-    render () {
         return (
             <div className="my-apps">
-                <h1>My Job Applications</h1>
+                <h1>My Job Applications
+                <i className="fas fa-plus-square"></i>
+                </h1>
                     <label>Status</label>
                     <label>Company</label>
                     <label>Contact Name</label>
@@ -44,10 +30,10 @@ export default class Myapplications extends Component {
                     <label>Follow Up</label>
                     <label >Interview</label>
                     <ul id='info'>
-                        {this.showList()}
+                        {showList()}
                     </ul>
+                    <label>Edit/Add</label>
                 <div className='footer-filler'></div>
             </div>
         )
-    }
 }
