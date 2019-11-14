@@ -3,13 +3,12 @@ import {
     Link, 
     scroller
 } from 'react-scroll'
-
+import { useHistory } from 'react-router-dom'
 import { saveAs } from 'file-saver';
 
 import '../components-styles/NavBar.css'
 
-export default function NavBar ({baseURL, toggleLoginForm, ...props}) {
-
+export default function NavBar ({baseURL, toggleLoginForm, user, ...props}) {
     const scrollTo = (element) => {
         scroller.scrollTo(element, {
           duration: 1000,
@@ -32,13 +31,25 @@ export default function NavBar ({baseURL, toggleLoginForm, ...props}) {
         toggleLoginForm()
     }
 
+    const history = useHistory()
+
+    function home () {
+        const { token } = localStorage
+        if (token) { 
+            history.push('/')
+            localStorage.clear()
+        } else {
+            scrollTo("home")
+        }
+    }
+
     return (
         <header>
             <nav className="navbar">
                 <Link 
                     activeclassname="active"
                     to='home'
-                    onClick={() => scrollTo("home")}
+                    onClick={home}
                 >Home</Link>
                 <Link 
                     to='about'
