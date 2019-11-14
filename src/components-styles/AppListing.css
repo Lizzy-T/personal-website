@@ -1,13 +1,29 @@
 .listing {
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-areas:
-        "status company name method date follow interview";
+    grid-template-columns: repeat(6, 1fr) 2fr 1fr;
     justify-items: center;
+    margin-bottom: 30px;
     grid-column-gap: 27px;
-    grid-row-gap: 17px;
 }
 
-.listing p {
-    text-align: center;
+
+
+.icon-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
 }
