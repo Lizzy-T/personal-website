@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { Component } from 'react'
 
 import AppListing from './AppListing'
+import ApplicationForm from './ApplicationForm'
 
 import '../components-styles/Myapplications.css'
 
-export default function Myapplications ({userApplications}) {
+export default class Myapplications extends Component {
 
-    const showList = () => {
-        if (userApplications < 1) return 
-        userApplications = userApplications[0]
+    state = {
+        isFormShowing: true
+    }
+
+    showList = () => {
+        const { userApplications } = this.props
+        if (userApplications.length < 1) return 
         return userApplications.map(listing => {
             return (
                 <li key={listing.id}>
@@ -17,23 +22,57 @@ export default function Myapplications ({userApplications}) {
             )})
     }
 
+    toggleForm = () => {
+        const { isFormShowing } = this.state
+        this.setState({ isFormShowing: !isFormShowing})
+    }
+
+    handleClick = () => {
+        this.toggleForm()
+    }
+
+    renderErrors = (errors) => {
+        return errors.map(error => <p className='error'>{error}</p> )
+    }
+
+    render () {
+        const { createJobApplication, errors } = this.props
+        const { isFormShowing } = this.state
         return (
             <div className="my-apps">
                 <h1>My Job Applications
-                <i className="fas fa-plus-square"></i>
+                <i className="fas fa-plus-square" onClick={this.handleClick}></i>
                 </h1>
+                {
+                    isFormShowing
+                    ? <ApplicationForm 
+                        submitForm={createJobApplication}
+                        toggleForm={this.toggleForm}
+                    />
+                    :null
+                }
+                {
+                    errors
+                    ?   <div className="error-box">
+                            {this.renderErrors(errors)}
+                        </div>
+                    :null
+                }
+                <div className='label-container'>
                     <label>Status</label>
                     <label>Company</label>
                     <label>Contact Name</label>
                     <label>Call/Email</label>
                     <label>Date Submitted</label>
-                    <label>Follow Up</label>
+                    <label>Followed Up?</label>
                     <label >Interview</label>
-                    <ul id='info'>
-                        {showList()}
-                    </ul>
-                    <label>Edit/Add</label>
+                </div>
+
+                <ul id='info'>
+                    {this.showList()}
+                </ul>
                 <div className='footer-filler'></div>
             </div>
         )
+    }
 }

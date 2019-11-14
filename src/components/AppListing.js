@@ -10,6 +10,14 @@ export default function AppListing ({
         return interviews.map(listing => < InterviewListing {...listing} key={listing.id}/>)
     }
 
+    const interviewHolder = () => {
+        return (
+            <div>
+
+            </div>
+        )
+    }
+
     return (
         <div className="listing">
             <p className={status} >{status}</p>
@@ -18,7 +26,10 @@ export default function AppListing ({
             <p>{contact_method}</p>
             <p>{date_submitted}</p>
             <input type='checkbox' checked={follow_up} />
-            {renderInterviews()}
+            { interviews 
+                ? renderInterviews() 
+                : interviewHolder()
+                }
             <div className='icon-box'>
                 <i className="fas fa-calendar-plus"></i>
                 <i className="fas fa-pen-square"></i>

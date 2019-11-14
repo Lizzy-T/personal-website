@@ -18,7 +18,8 @@ class App extends Component {
     user_id: 3,
     isLoginForm: false,
     baseURL: "https://etong-personal-api.herokuapp.com",
-    userApplications: []
+    userApplications: [],
+    errors: null
   }
 
 
@@ -27,7 +28,8 @@ class App extends Component {
     fetch(`${baseURL}/users/${user_id}/applications`)
       .then(response => response.json())
       .then(list => {
-        this.setState({userApplications: [list]})
+        const newList = [...list].reverse()
+        this.setState({userApplications: newList})
       })
   }
 
@@ -40,8 +42,32 @@ class App extends Component {
     this.setState({user: name})
   }
 
+  createJobApplication = (listObj) => {
+    const { baseURL, user_id } = this.state 
+    return fetch(`${baseURL}/users/${user_id}/applications`, {
+        method: "POST",
+        headers: {
+            "content-type": 'application/json'
+        },
+        body: JSON.stringify(listObj)
+    }).then(response => {
+            if (response.status > 400) throw new Error ('uh oh')
+            return response.json()
+        }).then(response => {
+            if (response.errors) {
+                throw new Error(response.errors)
+            } else {
+              const {userApplications} = this.state
+              this.setState({ userApplications: [response, ...userApplications]})
+            }
+        }).catch(errors => {
+          const newErrors = errors["message"].split(',')
+          this.setState({errors: newErrors})
+        })
+}
+
   render () {
-    const { isLoginForm, baseURL, userApplications } = this.state
+    const { isLoginForm, baseURL, userApplications, user_id, errors } = this.state
     return (
       <div className="App">
         <Router>
@@ -64,6 +90,10 @@ class App extends Component {
             <Route path='/myapplications' >
               <Myapplications 
                 userApplications={userApplications}
+                baseURL={baseURL}
+                user_id={user_id}
+                createJobApplication={this.createJobApplication}
+                errors={errors}
               />
             </Route>
           </Switch>
