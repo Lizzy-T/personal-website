@@ -3,8 +3,8 @@
     display: flex;
     flex-flow: column wrap;
     padding: 10rem 2rem;
-    background-color: #123c69;
-    color: hsla(21, 33%, 90%, 0.925);
+    background-color: hsl(210, 12%, 41%);
+    color: hsl(191, 13%, 83%);
 }
 
 .contact h3 {

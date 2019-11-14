@@ -1,0 +1,8 @@
+#login {
+    padding: 2rem;
+    padding-top: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row nowrap;
+}
