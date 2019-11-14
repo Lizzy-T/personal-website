@@ -38,16 +38,18 @@ class App extends Component {
 
   loginUser = (name) => {
     this.setState({user: name})
+    localStorage.setItem("token", name)
   }
 
   render () {
-    const { isLoginForm, baseURL, userApplications } = this.state
+    const { isLoginForm, baseURL, userApplications, user } = this.state
     return (
       <div className="App">
         <Router>
           <NavBar 
             baseURL={baseURL} 
             toggleLoginForm={this.toggleLoginForm}
+            user={user}
             />
             {
               isLoginForm
