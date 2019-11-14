@@ -15,13 +15,20 @@ import './App.css';
 class App extends Component {
   state = {
     user: "",
+    user_id: 3,
     isLoginForm: false,
     baseURL: "https://etong-personal-api.herokuapp.com",
+    userApplications: []
   }
 
 
   componentDidMount = () => {
-    fetch(this.baseURL)
+    const { baseURL, user_id } = this.state 
+    fetch(`${baseURL}/users/${user_id}/applications`)
+      .then(response => response.json())
+      .then(list => {
+        this.setState({userApplications: [list]})
+      })
   }
 
   toggleLoginForm = () => {
@@ -34,7 +41,7 @@ class App extends Component {
   }
 
   render () {
-    const { user, isLoginForm, baseURL } = this.state
+    const { isLoginForm, baseURL, userApplications } = this.state
     return (
       <div className="App">
         <Router>
@@ -56,7 +63,7 @@ class App extends Component {
             </Route>
             <Route path='/myapplications' >
               <Myapplications 
-                
+                userApplications={userApplications}
               />
             </Route>
           </Switch>

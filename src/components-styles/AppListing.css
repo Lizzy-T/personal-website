@@ -1,0 +1,13 @@
+.listing {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-areas:
+        "status company name method date follow interview";
+    justify-items: center;
+    grid-column-gap: 27px;
+    grid-row-gap: 17px;
+}
+
+.listing p {
+    text-align: center;
+}

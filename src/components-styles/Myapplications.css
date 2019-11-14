@@ -1,3 +1,36 @@
 .my-apps {
     padding: 12rem 5rem;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "header header header header header header header"
+        "label label label label label label label"
+        "main main main main main main main"
+        "footer footer footer footer footer footer footer";
+    grid-row-gap: 17px;
+    grid-column-gap: 27px;
+    background-color: hsl(210, 12%, 41%);
+    color: hsl(60, 22%, 87%);
+}
+
+.my-apps h1 {
+    grid-area: header;
+    padding-bottom: 15px;
+}
+
+.my-apps label {
+    text-align: center;
+    align-self: end;
+    font-weight: 9000;
+    border-bottom: 1px solid;
+}
+
+#info {
+    grid-area: main;
+}
+
+.footer-filler {
+    grid-area: footer;
+    padding: 6rem;
 }
