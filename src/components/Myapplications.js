@@ -11,6 +11,11 @@ export default class Myapplications extends Component {
         isFormShowing: true
     }
 
+    componentDidMount = () => {
+        const { fetchUserApplications } = this.props
+        fetchUserApplications()
+    }
+
     showList = () => {
         const { userApplications } = this.props
         if (userApplications.length < 1) return 

@@ -30,6 +30,7 @@ export default function NavBar ({baseURL, toggleLoginForm, user, ...props}) {
     }
 
     function handleLogin (e) {
+        scrollTo("home")
         toggleLoginForm()
     }
 

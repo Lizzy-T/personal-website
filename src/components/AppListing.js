@@ -5,7 +5,14 @@ import InterviewListing from './InterviewListing'
 import '../components-styles/AppListing.css'
 
 export default function AppListing ({
-    company, contact_method, contact_name, date_submitted, follow_up, status, interviews }) {
+    company, 
+    contact_method, 
+    contact_name, 
+    date_submitted, 
+    follow_up, 
+    status, 
+    interviews }) {
+    
     const renderInterviews = () => {
         return interviews.map(listing => < InterviewListing {...listing} key={listing.id}/>)
     }
