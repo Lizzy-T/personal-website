@@ -17,13 +17,13 @@
 }
 
 .yellow {
-    color: yellow;
+    color: hsl(60, 73%, 46%);
 }
 
 .red {
-    color: red;
+    color: hsl(0, 71%, 17%);
 }
 
 .green {
-    color: green;
+    color: rgb(12, 88, 12);
 }

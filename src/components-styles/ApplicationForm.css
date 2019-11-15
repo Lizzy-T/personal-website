@@ -13,3 +13,25 @@
     grid-row: 1 / span 2;
     align-self: end;
 }
+
+.application-form input {
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 2px solid hsla(219, 14%, 20%, 0.699);
+    border-radius: 2px;
+    background-color: hsl(60, 22%, 87%);
+    padding: 5px 0;
+}
+
+.application-form input[type=text] {
+    padding-left: 10px;
+}
+
+.application-form input[type=text]:focus {
+    border: 3px solid hsl(217, 13%, 20%);
+}
+
+.application-form input[type='submit'] {
+    background-color: hsla(219, 14%, 20%, 0.699);
+    color: hsl(60, 22%, 87%);
+}

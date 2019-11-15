@@ -24,8 +24,7 @@ export default class ApplicationForm extends Component {
         e.preventDefault()
         const { newJobApp } = this.state
         const {submitForm, toggleForm} = this.props
-        submitForm(newJobApp)
-            .then(response => {
+        submitForm(newJobApp).then(response => {
                 if (response) {
                     this.setState({
                         newJobApp: {

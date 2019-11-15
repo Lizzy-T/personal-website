@@ -29,7 +29,7 @@ export default function AppListing ({
         <div className="listing">
             <p className={status} >{status}</p>
             <p>{company}</p>
-            <p>{contact_name}e</p>
+            <p>{contact_name}</p>
             <p>{contact_method}</p>
             <p>{date_submitted}</p>
             <input type='checkbox' checked={follow_up} />
