@@ -22,7 +22,7 @@ class App extends Component {
   }
 
   fetchUserApplications = (id) => {    
-    const { baseURL, user_id } = this.state
+    const { baseURL } = this.state
     this.setState({user_id: localStorage.token})
     if (id > 0 ) {
       fetch(`${baseURL}/users/${id}/applications`)

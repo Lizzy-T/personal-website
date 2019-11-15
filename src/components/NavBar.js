@@ -30,7 +30,7 @@ export default function NavBar ({baseURL, toggleLoginForm, user, ...props}) {
     }
 
     function handleLogin (e) {
-        scrollTo("home")
+        // scrollTo("home")
         toggleLoginForm()
     }
 
@@ -84,7 +84,7 @@ export default function NavBar ({baseURL, toggleLoginForm, user, ...props}) {
                     <i className="fas fa-file-alt" 
                         onClick={downloadResume}
                     ></i>
-                    <i className="fas fa-sign-in-alt"
+                    <i className="fas fa-user-shield"
                         onClick={handleLogin}
                     ></i>
                 </div>
