@@ -1,5 +1,23 @@
 .resume {
-    background-color: hsl(191, 13%, 83%);
-    height: 100vh;
-    padding: 15rem;
+    background-color: hsl(208, 23%, 67%);
+    padding: 12rem 11rem;
+    padding-bottom: 20rem;
+    height: 70vh;
+}
+
+.resume h2 {
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.resume li {
+    padding: 35px 10px;
+}
+
+.resume h4 {
+    margin-bottom: 5px;
+}
+
+.resume p {
+    margin-top: 5px;
 }

@@ -2,19 +2,18 @@
 .contact {
     display: flex;
     flex-flow: column wrap;
+    align-items: center;
     padding: 10rem 2rem;
-    background-color: hsl(210, 12%, 41%);
-    color: hsl(191, 13%, 83%);
+    background-color: hsl(208, 23%, 67%);
+    height: 50vh;
 }
 
 .contact h3 {
-    align-self: center;
     font-size: 25px;
 }
 
 .contact p {
     margin-top: 15px;
-    align-self: center;
 }
 
 .personal-email {

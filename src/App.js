@@ -68,7 +68,7 @@ class App extends Component {
 }
 
   render () {
-    const { isLoginForm, baseURL, userApplications, user_id, errors } = this.state
+    const { isLoginForm, baseURL, userApplications, user_id, errors, user } = this.state
     return (
       <div className="App">
         <Router>

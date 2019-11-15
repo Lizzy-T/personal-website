@@ -62,6 +62,14 @@ export default function NavBar ({baseURL, toggleLoginForm, user, ...props}) {
                         activeclassname="active"
                         onClick={() => scrollTo("resume")}
                     >Resume</Link>
+                    <Link 
+                        to='hobbies'
+                        onClick={() => scrollTo("hobbies")}
+                    >Hobbies</Link>
+                    <Link
+                        to='contact'
+                        onClick={() => scrollTo("contact")}
+                    >Contact</Link>
                 </nav>
                 <div className='img-links'>
                     <a href="https://www.linkedin.com/in/elizabeth-tong-a5851b180">

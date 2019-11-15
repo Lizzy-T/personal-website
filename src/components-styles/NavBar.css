@@ -31,8 +31,10 @@ header div {
 .img-links {
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: auto;
+    grid-template-columns: repeat(4, auto);
+    grid-auto-flow: row;
     align-items: center;
+    grid-column-gap: 8px;
 }
 
 .fa-linkedin, .fa-github-square, .fa-sign-in-alt {
