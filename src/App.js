@@ -4,9 +4,6 @@ import {
   Switch,
   Route
 } from "react-router-dom"
-import {
-  Element
-} from 'react-scroll'
 
 import Main from './components/Main'
 import NavBar from './components/NavBar'
@@ -24,11 +21,11 @@ class App extends Component {
     errors: null
   }
 
-
-  fetchUserApplications = () => {
+  fetchUserApplications = (id) => {    
     const { baseURL, user_id } = this.state
-    if (user_id !== 0 ) {
-      fetch(`${baseURL}/users/${user_id}/applications`)
+    this.setState({user_id: localStorage.token})
+    if (id > 0 ) {
+      fetch(`${baseURL}/users/${id}/applications`)
         .then(response => response.json())
         .then(list => {
           const newList = [...list].reverse()
@@ -43,7 +40,8 @@ class App extends Component {
   }
 
   loginUser = ({username, password}) => {
-    const { baseURL } = this.state 
+    const { baseURL } = this.state
+    this.resetErrors()
     return fetch(`${baseURL}/login`, {
       method: "POST",
       headers: {
@@ -56,13 +54,15 @@ class App extends Component {
         this.setState({errors: data.error})
         throw new Error(data.error)
       } else {
-        this.setState({user_id: data.id})
-        localStorage.setItem("token", data.id)
+        const { id } = data
+        this.setState({user_id: id})
+        localStorage.setItem("token", id)
         return data
       }})
   }
 
   createJobApplication = (listObj) => {
+    this.resetErrors()
     const { baseURL, user_id } = this.state 
     return fetch(`${baseURL}/users/${user_id}/applications`, {
         method: "POST",
@@ -79,6 +79,7 @@ class App extends Component {
             } else {
               const {userApplications} = this.state
               this.setState({ userApplications: [response, ...userApplications]})
+              return response
             }
         }).catch(errors => {
           const newErrors = errors["message"].split(',')
@@ -103,14 +104,12 @@ resetErrors = () => {
             {
               isLoginForm
               ? 
-                <Element name='login'>
                   <LoginForm 
                   loginUser={this.loginUser}
                   toggleLoginForm={this.toggleLoginForm}
                   error={errors}
                   resetErrors={this.resetErrors}
                 />
-                </Element>
               : null
             }
           <Switch>

@@ -8,12 +8,14 @@ import '../components-styles/Myapplications.css'
 export default class Myapplications extends Component {
 
     state = {
-        isFormShowing: true
+        isFormShowing: false
     }
 
     componentDidMount = () => {
+        console.log("local storage my apps", localStorage.token)
         const { fetchUserApplications } = this.props
-        fetchUserApplications()
+        const id = localStorage.token
+        fetchUserApplications(id)
     }
 
     showList = () => {
