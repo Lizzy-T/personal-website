@@ -21,9 +21,11 @@ export default function NavBar ({baseURL, toggleLoginForm, user, ...props}) {
         fetch(`${baseURL}/download`)
             .then(response => {
                 if (response.status > 400) throw new Error("not downloadable")
-                console.log(response)
-                response.blob()
-            }).then(blob => saveAs(blob, "ETongResume.pdf", { autoBom: true })) 
+                
+                return response.blob()
+            }).then(blob => {
+                saveAs(blob, "ETongResume.pdf")
+            }) 
             .catch(console.log)
     }
 
