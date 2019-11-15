@@ -45,36 +45,38 @@ export default function NavBar ({baseURL, toggleLoginForm, user, ...props}) {
 
     return (
         <header>
-            <nav className="navbar">
-                <Link 
-                    activeclassname="active"
-                    to='home'
-                    onClick={home}
-                >Home</Link>
-                <Link 
-                    to='about'
-                    activeclassname="active"
-                    onClick={() => scrollTo("about")}
-                >About</Link>
-                <Link 
-                    to='resume'
-                    activeclassname="active"
-                    onClick={() => scrollTo("resume")}
-                >Resume</Link>
-            </nav>
-            <div className='img-links'>
-                <a href="https://www.linkedin.com/in/elizabeth-tong-a5851b180">
-                    <i className="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/Lizzy-T">
-                    <i className="fab fa-github-square"></i>
-                </a>
-                <i className="fas fa-file-alt" 
-                    onClick={downloadResume}
-                ></i>
-                <i className="fas fa-sign-in-alt"
-                    onClick={handleLogin}
-                ></i>
+            <div>
+                <nav className="navbar">
+                    <Link 
+                        activeclassname="active"
+                        to='home'
+                        onClick={home}
+                    >Home</Link>
+                    <Link 
+                        to='about'
+                        activeclassname="active"
+                        onClick={() => scrollTo("about")}
+                    >About</Link>
+                    <Link 
+                        to='resume'
+                        activeclassname="active"
+                        onClick={() => scrollTo("resume")}
+                    >Resume</Link>
+                </nav>
+                <div className='img-links'>
+                    <a href="https://www.linkedin.com/in/elizabeth-tong-a5851b180">
+                        <i className="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/Lizzy-T">
+                        <i className="fab fa-github-square"></i>
+                    </a>
+                    <i className="fas fa-file-alt" 
+                        onClick={downloadResume}
+                    ></i>
+                    <i className="fas fa-sign-in-alt"
+                        onClick={handleLogin}
+                    ></i>
+                </div>
             </div>
         </header>
     )

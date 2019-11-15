@@ -28,6 +28,7 @@ colors {
   color-block2: hsl(210, 12%, 41%);
   color: hsl(280, 2%, 28%);
   color-hover: white;
+  color-font-on-dark: hsl(60, 22%, 87%);
 }
 
 h1, h2, h3, h4, h5, h6 {
