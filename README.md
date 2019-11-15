@@ -77,3 +77,7 @@ Overall, this worked well as a smooth navigation within my webpage and enables t
 
 ## License
 
+
+MIT License
+
+Copyright (c) 2019 Elizabeth Tong
