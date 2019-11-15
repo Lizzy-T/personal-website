@@ -40,6 +40,7 @@ class App extends Component {
 
   loginUser = (name) => {
     this.setState({user: name})
+    localStorage.setItem("token", name)
   }
 
   createJobApplication = (listObj) => {
@@ -74,6 +75,7 @@ class App extends Component {
           <NavBar 
             baseURL={baseURL} 
             toggleLoginForm={this.toggleLoginForm}
+            user={user}
             />
             {
               isLoginForm
