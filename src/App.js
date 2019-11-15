@@ -4,6 +4,9 @@ import {
   Switch,
   Route
 } from "react-router-dom"
+import {
+  Element
+} from 'react-scroll'
 
 import Main from './components/Main'
 import NavBar from './components/NavBar'
@@ -14,23 +17,24 @@ import './App.css';
 
 class App extends Component {
   state = {
-    user: "",
-    user_id: 3,
+    user_id: 0,
     isLoginForm: false,
-    baseURL: "https://etong-personal-api.herokuapp.com",
+    baseURL: "http://localhost:9000",
     userApplications: [],
     errors: null
   }
 
 
-  componentDidMount = () => {
-    const { baseURL, user_id } = this.state 
-    fetch(`${baseURL}/users/${user_id}/applications`)
-      .then(response => response.json())
-      .then(list => {
-        const newList = [...list].reverse()
-        this.setState({userApplications: newList})
-      })
+  fetchUserApplications = () => {
+    const { baseURL, user_id } = this.state
+    if (user_id !== 0 ) {
+      fetch(`${baseURL}/users/${user_id}/applications`)
+        .then(response => response.json())
+        .then(list => {
+          const newList = [...list].reverse()
+          this.setState({userApplications: newList})
+        })
+    }
   }
 
   toggleLoginForm = () => {
@@ -38,9 +42,24 @@ class App extends Component {
     this.setState({ isLoginForm: !isLoginForm})
   }
 
-  loginUser = (name) => {
-    this.setState({user: name})
-    localStorage.setItem("token", name)
+  loginUser = ({username, password}) => {
+    const { baseURL } = this.state 
+    return fetch(`${baseURL}/login`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({username, password})
+    }).then(response => response.json())
+    .then(data => {
+      if (data.error) {
+        this.setState({errors: data.error})
+        throw new Error(data.error)
+      } else {
+        this.setState({user_id: data.id})
+        localStorage.setItem("token", data.id)
+        return data
+      }})
   }
 
   createJobApplication = (listObj) => {
@@ -67,6 +86,10 @@ class App extends Component {
         })
 }
 
+resetErrors = () => {
+  this.setState({errors: null})
+}
+
   render () {
     const { isLoginForm, baseURL, userApplications, user_id, errors, user } = this.state
     return (
@@ -79,10 +102,15 @@ class App extends Component {
             />
             {
               isLoginForm
-              ? <LoginForm 
+              ? 
+                <Element name='login'>
+                  <LoginForm 
                   loginUser={this.loginUser}
                   toggleLoginForm={this.toggleLoginForm}
+                  error={errors}
+                  resetErrors={this.resetErrors}
                 />
+                </Element>
               : null
             }
           <Switch>
@@ -95,6 +123,7 @@ class App extends Component {
                 baseURL={baseURL}
                 user_id={user_id}
                 createJobApplication={this.createJobApplication}
+                fetchUserApplications={this.fetchUserApplications}
                 errors={errors}
               />
             </Route>

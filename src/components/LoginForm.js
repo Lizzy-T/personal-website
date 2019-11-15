@@ -3,40 +3,74 @@ import {
     withRouter
 } from 'react-router-dom'
 
+
 import "../components-styles/LoginForm.css"
 
 
 class LoginForm extends Component {
     state = {
-        name: ''
+        user: {
+            username: '',
+            password: ''
+        }
+    }
+
+    componentDidMount = () => {
+        const { resetErrors } = this.props
+        resetErrors()
     }
 
 
     handleSubmit = (e) => {
         e.preventDefault()
         const { loginUser, history, toggleLoginForm } = this.props
-        const { name } = this.state
-        loginUser(name)
-        this.setState({name : ""})
-        toggleLoginForm()
-        history.push('/myapplications')
+        const { user } = this.state
+        loginUser(user).then( data => {
+                this.setState({
+                    username : "",
+                    password: ""
+                })
+                history.push('/myapplications')
+                toggleLoginForm()
+            }).catch(console.log)
     }
 
-    handleChange = (e) => {
-        this.setState({name: e.target.value})
+    handleChange = property => (e) => {
+        const { user } = this.state 
+        user[property] = e.target.value
+        this.setState({user})
     }
+
 
     render () {
-        const { name } = this.state
+        const { username, password } = this.state.user
+        const { error } = this.props
+
         return (
+            <div id='login-container'>
             <form id="login" onSubmit={this.handleSubmit}>
                 <input 
                     type='text' 
-                    value= {name}
-                    onChange={this.handleChange}
+                    value= {username}
+                    placeholder="username"
+                    onChange={this.handleChange('username')}
+                    />
+                <input 
+                    type='text' 
+                    value= {password}
+                    placeholder="password"
+                    onChange={this.handleChange('password')}
                     />
                 <input type='submit' />
             </form>
+                {
+                    error
+                    ?   <div className="login-error-box">
+                            <p className='login-error'>*{error}*</p>
+                        </div>
+                    :null
+                }
+            </div>
         )
     }
 }
