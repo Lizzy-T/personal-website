@@ -37,15 +37,15 @@ header div {
     grid-column-gap: 8px;
 }
 
-.fa-linkedin, .fa-github-square, .fa-sign-in-alt {
+.fa-linkedin, .fa-github-square {
     font-size: 38px;
 }
 
-.fa-file-alt {
+.fa-file-alt, .fa-user-shield {
     font-size: 34px;
 }
 
-.fa-linkedin:hover, .fa-github-square:hover, .fa-file-alt:hover, .fa-sign-in-alt:hover {
+.fa-linkedin:hover, .fa-github-square:hover, .fa-file-alt:hover, .fa-user-shield:hover {
     color: hsl(0, 0%, 100%);
     transition: .3s;
     cursor: pointer;

@@ -56,7 +56,7 @@ class LoginForm extends Component {
                     onChange={this.handleChange('username')}
                     />
                 <input 
-                    type='text' 
+                    type='password' 
                     value= {password}
                     placeholder="password"
                     onChange={this.handleChange('password')}

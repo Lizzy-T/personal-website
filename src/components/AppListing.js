@@ -33,7 +33,7 @@ export default function AppListing ({
             <p>{contact_method}</p>
             <p>{date_submitted}</p>
             <input type='checkbox' checked={follow_up} />
-            { interviews 
+            { interviews && interviews.length > 1 
                 ? renderInterviews() 
                 : interviewHolder()
                 }

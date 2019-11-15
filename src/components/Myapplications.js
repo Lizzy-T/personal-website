@@ -12,7 +12,6 @@ export default class Myapplications extends Component {
     }
 
     componentDidMount = () => {
-        console.log("local storage my apps", localStorage.token)
         const { fetchUserApplications } = this.props
         const id = localStorage.token
         fetchUserApplications(id)
