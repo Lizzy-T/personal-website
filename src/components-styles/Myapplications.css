@@ -1,25 +1,37 @@
 .my-apps {
     padding: 12rem 5rem;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr) 2fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas: 
-        "header header header header header header header header"
-        "label label label label label label label label"
-        "main main main main main main main main"
-        "footer footer footer footer footer footer footer footer";
-    grid-row-gap: 17px;
-    grid-column-gap: 27px;
+    display: flex;
+    flex-flow: column nowrap;
     background-color: hsl(210, 12%, 41%);
     color: hsl(60, 22%, 87%);
 }
 
+.label-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr) 2fr 1fr;
+    grid-row-gap: 17px;
+    grid-column-gap: 27px;
+    margin-bottom: 15px;
+}
+
 .my-apps h1 {
     grid-area: header;
-    padding-bottom: 15px;
+    padding-bottom: 35px;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+}
+
+.error-box {
+    display: flex;
+    flex-flow: column wrap;
+    color: hsl(0, 71%, 17%);
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.error {
+    margin-bottom: 30px;
 }
 
 .my-apps label {
