@@ -68,7 +68,7 @@ export default function NavBar ({baseURL, toggleLoginForm, user, ...props}) {
                     <Link 
                         to='hobbies'
                         onClick={() => scrollTo("hobbies")}
-                    >Hobbies</Link>
+                    >Passions</Link>
                     <Link
                         to='contact'
                         onClick={() => scrollTo("contact")}
