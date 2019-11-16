@@ -16,9 +16,13 @@ class App extends Component {
   state = {
     user_id: 0,
     isLoginForm: false,
-    baseURL: "http://localhost:9000",
+    baseURL: "https://etong-personal-api.herokuapp.com",
     userApplications: [],
     errors: null
+  }
+
+  componentDidMount = () => {
+    fetch(baseURL)
   }
 
   fetchUserApplications = (id) => {    
