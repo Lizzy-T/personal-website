@@ -41,11 +41,11 @@ header div {
     font-size: 38px;
 }
 
-.fa-file-alt, .fa-user-shield {
+.fa-file-download, .fa-user-shield {
     font-size: 34px;
 }
 
-.fa-linkedin:hover, .fa-github-square:hover, .fa-file-alt:hover, .fa-user-shield:hover {
+.fa-linkedin:hover, .fa-github-square:hover, .fa-file-download:hover, .fa-user-shield:hover {
     color: hsl(0, 0%, 100%);
     transition: .3s;
     cursor: pointer;

@@ -5,6 +5,9 @@ import {
 } from 'react-scroll'
 import { useHistory } from 'react-router-dom'
 import { saveAs } from 'file-saver';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithubSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faUserShield, faFileDownload } from '@fortawesome/free-solid-svg-icons'
 
 import '../components-styles/NavBar.css'
 
@@ -76,17 +79,27 @@ export default function NavBar ({baseURL, toggleLoginForm, user, ...props}) {
                 </nav>
                 <div className='img-links'>
                     <a href="https://www.linkedin.com/in/elizabeth-tong-a5851b180">
-                        <i className="fab fa-linkedin"></i>
+                        <FontAwesomeIcon
+                            className="icon"
+                            icon={faLinkedin}
+                         />
                     </a>
                     <a href="https://github.com/Lizzy-T">
-                        <i className="fab fa-github-square"></i>
+                        <FontAwesomeIcon
+                            className="icon"
+                            icon={faGithubSquare}
+                        />
                     </a>
-                    <i className="fas fa-file-alt" 
+                    <FontAwesomeIcon 
+                        className='icon'
+                        icon={faFileDownload}
                         onClick={downloadResume}
-                    ></i>
-                    <i className="fas fa-user-shield"
+                    />
+                    {/* <FontAwesomeIcon 
+                        className="icon"
+                        icon={faUserShield}
                         onClick={handleLogin}
-                    ></i>
+                    /> */}
                 </div>
             </div>
         </header>
